@@ -547,17 +547,33 @@
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
+                    console.log('Form submitted'); // Debug log
+                    
+                    // Check if plan is selected
+                    var planSelected = form.querySelector('input[name="plan"]:checked');
+                    if (!planSelected) {
+                        alert('Please select a plan');
+                        return;
+                    }
+                    
                     // Get form data
                     var formData = new FormData(form);
                     
                     // Convert to URL-encoded format
-                    var urlEncoded = new URLSearchParams(formData).toString();
+                    var params = [];
+                    for (var pair of formData.entries()) {
+                        params.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
+                    }
+                    var urlEncoded = params.join('&');
+                    
+                    console.log('Sending data:', urlEncoded); // Debug log
                     
                     // Submit to Google Sheets
                     fetch(form.action + '?' + urlEncoded, {
                         method: 'GET',
                         mode: 'no-cors'
                     }).then(function() {
+                        console.log('Success'); // Debug log
                         // Show thank you message
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
@@ -566,8 +582,11 @@
                         setTimeout(function() { 
                             closeOrderForm();
                             form.reset();
+                            var options = document.querySelectorAll('.plan-option');
+                            options.forEach(function(opt) { opt.classList.remove('selected'); });
                         }, 5000);
                     }).catch(function(error) {
+                        console.log('Error but showing thank you:', error); // Debug log
                         // Even if there's an error, show thank you (data still submitted)
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
@@ -576,6 +595,8 @@
                         setTimeout(function() { 
                             closeOrderForm();
                             form.reset();
+                            var options = document.querySelectorAll('.plan-option');
+                            options.forEach(function(opt) { opt.classList.remove('selected'); });
                         }, 5000);
                     });
                 });
