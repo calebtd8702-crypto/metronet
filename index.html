@@ -113,8 +113,15 @@
         }
 
         .nav-button-order {
-            background: white;
-            color: #1e1b4b;
+            background: white !important;
+            color: #1e1b4b !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-button-order:hover {
+            background: #f3f4f6 !important;
         }
 
         /* Order Form Overlay */
@@ -721,57 +728,68 @@
 
         /* Fiber Phone Section */
         .coverage-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 100px 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+            color: white !important;
+            padding: 100px 40px !important;
+            display: block !important;
+            width: 100% !important;
         }
 
         .coverage-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            text-align: center !important;
+            display: block !important;
         }
 
         .coverage-content h2 {
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: 3rem !important;
+            margin-bottom: 30px !important;
+            color: white !important;
         }
 
         .coverage-content p {
-            font-size: 1.3rem;
-            margin-bottom: 50px;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.3rem !important;
+            margin-bottom: 50px !important;
+            opacity: 0.9 !important;
+            max-width: 800px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            color: white !important;
         }
 
         .phone-features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-            text-align: left;
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 30px !important;
+            max-width: 1200px !important;
+            margin: 0 auto 50px !important;
+            text-align: left !important;
         }
 
         .phone-feature {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05) !important;
+            padding: 25px !important;
+            border-radius: 15px !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            transition: all 0.3s ease !important;
+            display: block !important;
         }
 
         .phone-feature:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-5px) !important;
         }
 
         .phone-feature h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #00ff88;
+            font-size: 1.2rem !important;
+            margin-bottom: 10px !important;
+            color: #00ff88 !important;
+        }
+
+        .phone-feature p {
+            color: white !important;
+            opacity: 0.9 !important;
         }
 
         /* CTA Section */
