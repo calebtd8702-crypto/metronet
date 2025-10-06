@@ -152,6 +152,92 @@
             margin: 0 10px;
         }
 
+        .tmobile-banner {
+            background: #E20074;
+            padding: 12px 40px;
+            text-align: center;
+            margin: 60px -40px -80px -40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tmobile-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .metronet-logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: lowercase;
+        }
+
+        .banner-text {
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-align: right;
+            line-height: 1.2;
+            text-transform: lowercase;
+        }
+
+        .tmobile-fiber-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tmobile-box {
+            background: white;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: #E20074;
+            font-size: 2rem;
+            font-family: sans-serif;
+            border-radius: 3px;
+        }
+
+        .fiber-text {
+            color: white;
+            font-size: 2rem;
+            font-weight: 300;
+            font-family: sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .metronet-logo {
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .tmobile-box {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+            
+            .fiber-text {
+                font-size: 1.6rem;
+            }
+            
+            .banner-text {
+                font-size: 0.65rem;
+            }
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -1025,6 +1111,20 @@
                 <div class="price-detail">
                     Symmetrical 500 Mb Fiber Internet<br>
                     Free eero WiFi Router Included
+                </div>
+            </div>
+        </div>
+        
+        <div class="tmobile-banner">
+            <div class="tmobile-banner-content">
+                <div class="metronet-logo">metronet</div>
+                <div class="banner-text">
+                    is now<br>
+                    part of
+                </div>
+                <div class="tmobile-fiber-logo">
+                    <div class="tmobile-box">T</div>
+                    <div class="fiber-text">Fiber</div>
                 </div>
             </div>
         </div>
