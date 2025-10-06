@@ -142,7 +142,7 @@
         .plan-option.most-popular-form { border-color: #00ff88; border-width: 3px; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3); }
         .plan-option.most-popular-form::before { content: 'MOST POPULAR'; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background: #00ff88; color: #1e1b4b; padding: 2px 8px; border-radius: 6px; font-size: 0.5rem; font-weight: 800; z-index: 5; }
         
-        .plan-option input[type="radio"] { display: none; }
+        .plan-option input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
         .plan-option .plan-speed { font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
         .plan-option.selected .plan-speed { color: #00ff88; }
         .plan-option .plan-price { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
