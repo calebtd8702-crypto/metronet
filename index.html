@@ -71,6 +71,31 @@
             gap: 30px;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #00ff88;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+        }
+
         .nav-button {
             background: #fbbf24;
             color: #1e1b4b;
@@ -109,6 +134,23 @@
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.4;
+            animation: float 25s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-60px) translateX(60px); }
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -125,6 +167,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero-subtitle {
@@ -133,6 +176,52 @@
             margin-bottom: 40px;
             opacity: 0.95;
             font-weight: 400;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-feature::before {
+            content: '✓';
+            background: rgba(255, 255, 255, 0.2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
 
         .btn-primary {
@@ -154,12 +243,30 @@
             box-shadow: 0 12px 24px rgba(0, 255, 136, 0.3);
         }
 
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #00ff88;
+            padding: 16px 38px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #00ff88;
+            color: #1e1b4b;
+        }
+
         .price-card {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
             padding: 40px;
             border-radius: 20px;
             border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 1.2s ease-out;
         }
 
         .price-label {
@@ -188,7 +295,334 @@
             opacity: 0.95;
         }
 
-        /* Order Form Overlay */
+        .benefits {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .benefit-card {
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(30, 27, 75, 0.15);
+            border-color: #1e1b4b;
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 2rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #1e1b4b;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .plans {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 100px 40px;
+            scroll-margin-top: 70px;
+        }
+
+        .plans-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1e1b4b 0%, #312e81 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(30, 27, 75, 0.25);
+            border-color: #1e1b4b;
+        }
+
+        .plan-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .plan-badge {
+            background: linear-gradient(135deg, #00ff88 0%, #00e077 100%);
+            color: #1e1b4b;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-speed {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            color: #1e1b4b;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #1a1a2e;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .plan-description {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .plan-features li {
+            padding: 14px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: #00ff88;
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .plan-button {
+            width: 100%;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .plan-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 27, 75, 0.4);
+            background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+        }
+
+        .trust-section {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .award-card {
+            padding: 50px 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .award-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .award-card h4 {
+            font-size: 1.4rem;
+            color: #1e1b4b;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .award-card p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .coverage-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 100px 40px;
+            scroll-margin-top: 70px;
+        }
+
+        .coverage-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .coverage-content h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .coverage-content p {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            text-align: left;
+        }
+
+        .phone-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .phone-feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .phone-feature h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        .coverage-map {
+            margin: 50px auto;
+            max-width: 900px;
+        }
+
+        .coverage-map svg {
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .cta-section {
+            max-width: 1400px;
+            margin: 100px auto 60px;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            border-radius: 30px;
+            text-align: center;
+            color: white;
+        }
+
         .order-overlay {
             display: none;
             position: fixed;
@@ -201,7 +635,13 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
             overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .order-overlay.active {
@@ -210,74 +650,90 @@
 
         .order-form-container {
             background: white;
-            padding: 60px;
+            padding: 50px;
             border-radius: 12px;
-            max-width: 900px;
+            max-width: 800px;
             width: 100%;
             position: relative;
-            margin: 40px auto;
+            animation: slideUp 0.4s ease;
+            margin: 20px auto;
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
+            top: 15px;
+            right: 15px;
+            background: #ef4444;
             border: none;
-            font-size: 2rem;
-            color: #64748b;
+            font-size: 1.5rem;
+            color: white;
             cursor: pointer;
             transition: all 0.2s ease;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            font-weight: 700;
+            z-index: 10;
         }
 
         .close-btn:hover {
-            background: rgba(0, 0, 0, 0.1);
-            color: #1e1b4b;
+            background: #dc2626;
+            transform: scale(1.1);
         }
 
         .order-form-container h2 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #1e1b4b;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 800;
         }
 
         .order-form-container .subtitle {
             color: #64748b;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-size: 1rem;
         }
 
         .form-section {
-            margin-bottom: 50px;
+            margin-bottom: 35px;
         }
 
         .form-section-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #1e1b4b;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 700;
-            padding-bottom: 15px;
+            padding-bottom: 12px;
             border-bottom: 3px solid #e2e8f0;
         }
 
         .plan-selection {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
         .plan-option {
             border: 3px solid #e2e8f0;
             border-radius: 12px;
-            padding: 30px 20px;
+            padding: 20px 15px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
@@ -301,9 +757,9 @@
         }
 
         .plan-speed {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 900;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .plan-option.selected .plan-speed {
@@ -311,32 +767,32 @@
         }
 
         .plan-price {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .plan-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.8;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
         }
 
         .form-label {
             display: block;
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
         }
 
         .required {
@@ -345,10 +801,10 @@
 
         .form-input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border: 2px solid #e2e8f0;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             background: white;
             transition: all 0.2s ease;
             font-family: 'Inter', sans-serif;
@@ -364,21 +820,26 @@
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
             color: white;
             border: none;
-            padding: 18px 50px;
+            padding: 16px 40px;
             border-radius: 8px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(30, 27, 75, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .thank-you-message {
@@ -409,13 +870,19 @@
             justify-content: center;
             font-size: 3rem;
             color: #1e1b4b;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
         }
 
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
             .order-form-container {
                 padding: 40px 25px;
             }
@@ -428,10 +895,141 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .phone-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.75rem;
+            }
+
+            .nav-right {
+                gap: 10px;
+            }
+
+            .nav-button {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .nav-button span:first-child {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .price {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .benefits, .plans, .trust-section, .cta-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-features {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Order Form Overlay -->
     <div class="order-overlay" id="orderOverlay">
         <div class="order-form-container">
             <button class="close-btn" onclick="closeOrderForm()">×</button>
@@ -497,18 +1095,18 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label">City <span class="required">*</span></label>
-                                <input type="text" class="form-input" name="city" placeholder="City" required>
+                                <input type="text" class="form-input" name="city" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">State <span class="required">*</span></label>
-                                <input type="text" class="form-input" name="state" placeholder="State" required>
+                                <input type="text" class="form-input" name="state" placeholder="IA" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">ZIP Code <span class="required">*</span></label>
-                            <input type="text" class="form-input" name="zip" placeholder="12345" required>
+                            <input type="text" class="form-input" name="zip" placeholder="50010" pattern="[0-9]{5}" maxlength="5" required>
                         </div>
 
                         <div class="form-row">
@@ -538,7 +1136,6 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-content">
             <div class="logo-section">
@@ -546,6 +1143,16 @@
                 <div class="logo-subtitle">Distributor</div>
             </div>
             <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#plans" class="nav-link">
+                        <span class="nav-icon">📡</span>
+                        <span>Fiber Internet</span>
+                    </a>
+                    <a href="#phone" class="nav-link">
+                        <span class="nav-icon">📞</span>
+                        <span>Fiber Phone</span>
+                    </a>
+                </div>
                 <button class="nav-button">
                     <span>📞</span>
                     <span>Call 319-423-5405</span>
@@ -558,13 +1165,23 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>High-Speed Fiber Internet Built for Your Life</h1>
                 <p class="hero-subtitle">Experience seamless connectivity with our 100% fiber network. Work, game, and stream simultaneously without interruptions in service.</p>
-                <button class="btn-primary" onclick="showOrderForm()">Get Started Today</button>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">No Data Caps</div>
+                    <div class="hero-feature">No Long-Term Contracts</div>
+                    <div class="hero-feature">100% Fiber Network</div>
+                    <div class="hero-feature">Local Customer Service</div>
+                </div>
+
+                <div class="hero-cta">
+                    <button class="btn-primary">Get Started Today</button>
+                    <button class="btn-secondary">View Plans</button>
+                </div>
             </div>
 
             <div class="price-card">
@@ -578,11 +1195,185 @@
         </div>
     </section>
 
-    <script>
+    <section class="plans" id="plans">
+        <div class="plans-container">
+            <div class="section-header">
+                <h2 class="section-title">Fiber Internet Plans</h2>
+                <p class="section-subtitle">Find the speed and pricing that's right for your household</p>
+            </div>
+
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-badge">Free Installation</div>
+                    <div class="plan-speed">500 Mb</div>
+                    <div class="plan-price">$60<span>/mo*</span></div>
+                    <p class="plan-description">500 Mb download • 500 Mb upload<br>Free eero wireless router included</p>
+                    <ul class="plan-features">
+                        <li>Moderate online activity</li>
+                        <li>Streaming in HD and 4K quality</li>
+                        <li>Remote learning and working</li>
+                        <li>Multiple apps simultaneously</li>
+                        <li>Perfect for small households</li>
+                    </ul>
+                    <button class="plan-button">Select Plan</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-badge">Free Installation</div>
+                    <div class="plan-speed">1 Gig</div>
+                    <div class="plan-price">$70<span>/mo*</span></div>
+                    <p class="plan-description">1 Gig download • 1 Gig upload<br>Free eero wireless router included</p>
+                    <ul class="plan-features">
+                        <li>Intensive internet activity</li>
+                        <li>4K & HD video streaming</li>
+                        <li>Remote work and video calls</li>
+                        <li>Online multiplayer gaming</li>
+                        <li>Ideal for busy families</li>
+                    </ul>
+                    <button class="plan-button">Select Plan</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-badge">Free Installation</div>
+                    <div class="plan-speed">2 Gig</div>
+                    <div class="plan-price">$80<span>/mo*</span></div>
+                    <p class="plan-description">2 Gig download • 2 Gig upload<br>Premium Wi-Fi 7 eero router included</p>
+                    <ul class="plan-features">
+                        <li>Future-ready connected home</li>
+                        <li>Ultra-fast streaming in 4K/8K</li>
+                        <li>Professional video conferencing</li>
+                        <li>Top-tier bandwidth & security</li>
+                        <li>Ultra-low latency gaming</li>
+                    </ul>
+                    <button class="plan-button">Select Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose Metronet Fiber</h2>
+            <p class="section-subtitle">Nothing compares to the fiber internet speeds delivered directly to your home. No sharing bandwidth with your neighbors.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Award-Winning Speeds</h3>
+                <p>Fast download and upload speeds make it easy to send and receive large amounts of data without compromising quality.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">∞</div>
+                <h3>Unlimited Data</h3>
+                <p>Use all the data you need on all your devices. Unlimited data with no throttling, no matter how much you stream or game.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">📺</div>
+                <h3>Seamless Streaming</h3>
+                <p>Stream live TV and your favorite shows, series, movies, and more simultaneously on multiple devices with virtually no buffering.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🏠</div>
+                <h3>Whole Home Coverage</h3>
+                <p>eero wireless router included for an exceptional WiFi experience throughout your entire home.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">💬</div>
+                <h3>Local Support</h3>
+                <p>Get help when you need it from our friendly customer care associates who live and work in the communities we serve.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">📝</div>
+                <h3>No Contracts</h3>
+                <p>Stay because you're happy, not because you have to. Enjoy flexibility with no long-term commitments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <div class="section-header">
+            <h2 class="section-title">Recognized Excellence</h2>
+            <p class="section-subtitle">Don't take our word for it. See what industry leaders are saying about Metronet.</p>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <h4>PCMag</h4>
+                <p>Fastest Major Internet Service Provider in the U.S. for the 2nd Year in a Row</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon">⚡</div>
+                <h4>Ookla Speedtest</h4>
+                <p>Verified as having the fastest internet and most reliable speeds in specific markets</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon">⭐</div>
+                <h4>BroadbandNow</h4>
+                <p>Editorial Board recognition for outstanding fiber internet service quality</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="coverage-section" id="phone">
+        <div class="coverage-content">
+            <h2>Fiber Phone Service</h2>
+            <p>Crystal-clear calling powered by 100% fiber optic technology with unlimited nationwide calling</p>
+            
+            <div class="phone-features">
+                <div class="phone-feature">
+                    <h4>📞 Unlimited Calling</h4>
+                    <p>Make unlimited local and long-distance calls across the United States</p>
+                </div>
+                <div class="phone-feature">
+                    <h4>🔊 Crystal Clear Quality</h4>
+                    <p>Superior voice quality powered by fiber optic technology</p>
+                </div>
+                <div class="phone-feature">
+                    <h4>📱 Advanced Features</h4>
+                    <p>Caller ID, call waiting, voicemail, and more included at no extra cost</p>
+                </div>
+                <div class="phone-feature">
+                    <h4>🔒 Reliable Service</h4>
+                    <p>Keep your existing phone number with 99.9% uptime reliability</p>
+                </div>
+            </div>
+
+            <button class="btn-primary">Check Your Address</button>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready for Better Internet?</h2>
+        <p>Faster speed. 100% fiber—doing things cable and DSL simply can't do.</p>
+        <div class="cta-buttons">
+            <button class="btn-primary">Get Started Today</button>
+            <button class="btn-secondary">Call Us Now</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="disclaimer">
+                ** Offers subject to change; available to new residential customers only. May not be combined with other offers. Services are subject to all applicable terms and conditions located at www.metronet.com. In select markets, Metronet may offer asymmetrical speeds. Advertised speed based on wired connection and compatible equipment; see our Network Management and Broadband Internet Service Disclosures at www.metronet.com for more details. Services not available in all areas. Restrictions apply. Pricing for the 500/500 Mb, 1/1 Gb, and 2/2 Gb are current standard rates. Offer of free installation is based on a one-time $75 credit is valid through September 1, 2025 - October 30, 2025. An eero router is provided at no additional cost when purchasing Metronet internet speeds; and equipment must be returned at time of cancellation. Upon any service suspension or voluntary service downgrade, pricing will revert to Metronet's then-current standard rates. The advertised price does not include applicable taxes.
+            </p>
+        </div>
+    </footer>
+
+            <script>
         // Order form functions
         function showOrderForm() {
             document.getElementById('orderOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
+            // Reset form when opening
             document.getElementById('orderFormContent').style.display = 'block';
             document.getElementById('thankYouMessage').style.display = 'none';
             document.getElementById('orderForm').reset();
@@ -613,11 +1404,51 @@
         // Handle form submission
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Hide form and show thank you message
             document.getElementById('orderFormContent').style.display = 'none';
             document.getElementById('thankYouMessage').style.display = 'block';
+            
+            // Auto-close after 5 seconds
             setTimeout(() => {
                 closeOrderForm();
             }, 5000);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Smooth scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.plan-card, .benefit-card, .award-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+            card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(card);
         });
     </script>
 </body>
