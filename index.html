@@ -12,7 +12,6 @@
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #2c3e50; overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
 
-        /* Navigation */
         .nav { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); padding: 15px 40px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); position: sticky; top: 0; z-index: 100; }
         .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo-section { display: flex; flex-direction: column; gap: 2px; }
@@ -26,7 +25,6 @@
         .nav-button:hover { background: #f59e0b; transform: translateY(-2px); }
         .nav-button-order { background: white; color: #1e1b4b; }
 
-        /* Hero */
         .hero { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; padding: 100px 40px 80px; position: relative; }
         .promo-box { background: #00ff88; color: #1e1b4b; text-align: center; padding: 15px; font-weight: 700; font-size: 1.2rem; margin: -100px -40px 40px -40px; }
         .hero-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -40,7 +38,6 @@
         .price-small { font-size: 1.5rem; }
         .price-detail { font-size: 1.1rem; line-height: 1.6; }
 
-        /* T-Mobile Banner */
         .tmobile-banner { background-color: #E20074; padding: 12px 20px; text-align: center; width: 100%; display: block; }
         .tmobile-content { display: inline-flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .metronet-text { color: white; font-size: 2rem; letter-spacing: 6px; font-weight: 300; }
@@ -48,7 +45,6 @@
         .t-box { background-color: white; color: #E20074; padding: 8px 12px; font-size: 2rem; font-weight: 900; border-radius: 3px; display: inline-block; }
         .fiber-text { color: white; font-size: 2rem; font-weight: 300; }
 
-        /* Plans Section */
         .plans { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 100px 40px; margin: 0; }
         .plans-container { max-width: 1400px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 70px; max-width: 1400px; margin-left: auto; margin-right: auto; }
@@ -56,16 +52,11 @@
         .section-subtitle { font-size: 1.3rem; color: #64748b; }
         .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; margin-top: 60px; }
         
-        /* MOST POPULAR STYLING */
         .plan-card { background: white; border-radius: 20px; padding: 50px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); transition: all 0.4s ease; border: 3px solid transparent; position: relative; }
         .plan-card:hover { transform: translateY(-12px); box-shadow: 0 20px 60px rgba(30, 27, 75, 0.25); border-color: #1e1b4b; }
         .plan-card.most-popular { border: 3px solid #00ff88; transform: scale(1.05); box-shadow: 0 12px 40px rgba(0, 255, 136, 0.3); }
         .plan-card.most-popular:hover { transform: scale(1.05) translateY(-12px); }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #00ff88; color: #1e1b4b; padding: 8px 24px; border-radius: 20px; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4); z-index: 10; }
-        
-        @media (max-width: 768px) {
-            .popular-badge { top: -12px; padding: 6px 16px; font-size: 0.7rem; }
-        }
         
         .plan-badge { background: #00ff88; color: #1e1b4b; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-bottom: 24px; text-transform: uppercase; }
         .plan-speed { font-size: 3rem; font-weight: 900; margin-bottom: 16px; color: #1e1b4b; }
@@ -79,7 +70,6 @@
         .plan-button { width: 100%; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; border: none; padding: 18px 30px; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
         .plan-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(30, 27, 75, 0.4); }
 
-        /* Benefits */
         .benefits { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 100px 40px; margin: 0; }
         .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; }
         .benefit-card { padding: 40px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; border: 1px solid #e2e8f0; }
@@ -88,7 +78,6 @@
         .benefit-card h3 { font-size: 1.5rem; margin-bottom: 16px; color: #1e1b4b; font-weight: 700; }
         .benefit-card p { color: #64748b; line-height: 1.7; font-size: 1.05rem; }
 
-        /* Trust */
         .trust-section { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 100px 40px; text-align: center; margin: 0; }
         .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 60px; max-width: 1400px; margin-left: auto; margin-right: auto; }
         .award-card { padding: 50px 40px; background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; }
@@ -97,7 +86,6 @@
         .award-card h4 { font-size: 1.4rem; color: #1e1b4b; margin-bottom: 12px; font-weight: 700; }
         .award-card p { color: #64748b; line-height: 1.6; font-size: 1.05rem; }
 
-        /* Phone */
         .coverage-section { background: #1a1a2e; color: white; padding: 100px 40px; display: block; width: 100%; }
         .coverage-content { max-width: 1400px; margin: 0 auto; text-align: center; display: block; }
         .coverage-content h2 { font-size: 3rem; margin-bottom: 30px; color: white; }
@@ -107,7 +95,6 @@
         .phone-feature h4 { font-size: 1.2rem; margin-bottom: 10px; color: #00ff88; }
         .phone-feature p { color: white; }
 
-        /* CTA */
         .cta-section { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); padding: 80px 40px; text-align: center; color: white; margin: 0; }
         .cta-section h2 { font-size: 3rem; margin-bottom: 24px; }
         .cta-section p { font-size: 1.4rem; margin-bottom: 40px; }
@@ -115,7 +102,6 @@
         .btn-secondary { background: transparent; color: white; border: 2px solid #00ff88; padding: 16px 38px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
         .btn-secondary:hover { background: #00ff88; color: #1e1b4b; }
 
-        /* Footer */
         .footer { background: #0f172a; color: #94a3b8; padding: 40px; text-align: center; }
         .footer-content { max-width: 1400px; margin: 0 auto; }
         .disclaimer { font-size: 0.75rem; line-height: 1.6; color: #94a3b8; }
@@ -123,19 +109,17 @@
         .footer-extra p { color: #94a3b8; margin-bottom: 15px; }
         .footer-extra strong { color: #94a3b8; }
 
-        /* Order Form */
         .order-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.75); z-index: 200; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .order-overlay.active { display: flex; }
         .order-form-container { background: white; padding: 50px; border-radius: 12px; max-width: 800px; width: 100%; position: relative; margin: 20px auto; max-height: 90vh; overflow-y: auto; }
         .close-btn { position: absolute; top: 15px; right: 15px; background: #e2e8f0; border: none; font-size: 1.8rem; color: #1e1b4b; cursor: pointer; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 10; }
         .close-btn:hover { background: #cbd5e0; transform: scale(1.1); }
         .order-form-container h2 { font-size: 1.8rem; color: #1e1b4b; margin-bottom: 8px; font-weight: 800; }
-        .order-form-container .subtitle { color: #64748b; margin-bottom: 30px; font-size: 1rem; }
+        .order-form-container .subtitle { color: #64748b; margin-bottom: 10px; font-size: 1rem; }
         .form-section { margin-bottom: 35px; }
         .form-section-title { font-size: 1.3rem; color: #1e1b4b; margin-bottom: 20px; font-weight: 700; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; }
         .plan-selection { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
         
-        /* MOST POPULAR IN FORM */
         .plan-option { border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px 15px; cursor: pointer; transition: all 0.3s ease; text-align: center; background: white; position: relative; }
         .plan-option:hover { border-color: #1e1b4b; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(30, 27, 75, 0.15); }
         .plan-option.selected { border-color: #00ff88; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; }
@@ -160,7 +144,6 @@
         .thank-you-message p { font-size: 1.3rem; color: #64748b; }
         .checkmark { width: 80px; height: 80px; border-radius: 50%; background: #00ff88; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #1e1b4b; }
 
-        /* Mobile */
         @media (max-width: 1024px) { .nav-links { display: none; } }
         @media (max-width: 768px) {
             .nav { padding: 10px 20px; }
@@ -186,6 +169,7 @@
             .plans-grid { grid-template-columns: 1fr; gap: 30px; }
             .plan-card { padding: 30px 25px; }
             .plan-card.most-popular { transform: scale(1); }
+            .popular-badge { top: -12px; padding: 6px 16px; font-size: 0.7rem; }
             .benefits-grid { grid-template-columns: 1fr; }
             .awards-grid { grid-template-columns: 1fr; }
             .phone-features { grid-template-columns: 1fr !important; gap: 20px !important; }
@@ -201,14 +185,13 @@
     </style>
 </head>
 <body>
-    <!-- Order Form -->
     <div class="order-overlay" id="orderOverlay">
         <div class="order-form-container">
             <button class="close-btn" onclick="closeOrderForm()">×</button>
             <div id="orderFormContent">
                 <h2>Get Started with Metronet</h2>
                 <p class="subtitle">Choose your plan and complete your information.</p>
-                <p class="subtitle" style="margin-top: -20px; font-size: 0.9rem; opacity: 0.8;">A Metronet representative will help you complete your signup shortly.</p>
+                <p class="subtitle" style="margin-top: -5px; font-size: 0.9rem; opacity: 0.8;">A Metronet representative will help you complete your signup shortly.</p>
                 <form id="orderForm" action="https://script.google.com/macros/s/AKfycbzHZqEZALxILm6ish3P9eyhmChltah9FeBi58-jJf890gpIBaifs-dC12FVS4poj_h2/exec" method="POST">
                     <div class="form-section">
                         <h3 class="form-section-title">Select Your Plan</h3>
@@ -260,7 +243,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">State <span class="required">*</span></label>
-                                <input type="text" class="form-input" name="state" required>
+                                <input type="text" class="form-input" name="state" placeholder="IA" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -269,7 +252,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Phone <span class="required">*</span></label>
-                            <input type="tel" class="form-input" name="phone" required>
+                            <input type="tel" class="form-input" name="phone" placeholder="555-555-5555" required>
                         </div>
                     </div>
                     <button type="submit" class="submit-btn">Complete Order</button>
@@ -285,7 +268,6 @@
         </div>
     </div>
 
-    <!-- Nav -->
     <nav class="nav">
         <div class="nav-content">
             <div class="logo-section">
@@ -303,7 +285,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="promo-box">🎉 LIMITED TIME OFFER: 30-Day Free Trial on All Plans! 🎉</div>
         <div class="hero-content">
@@ -320,7 +301,6 @@
         </div>
     </section>
 
-    <!-- T-Mobile Banner -->
     <div class="tmobile-banner">
         <div class="tmobile-content">
             <span class="metronet-text">metronet</span>
@@ -330,7 +310,6 @@
         </div>
     </div>
 
-    <!-- Plans -->
     <section class="plans" id="plans">
         <div class="plans-container">
             <div class="section-header">
@@ -385,7 +364,6 @@
         </div>
     </section>
 
-    <!-- Benefits -->
     <section class="benefits">
         <div class="section-header">
             <h2 class="section-title">Why Choose Metronet Fiber</h2>
@@ -425,7 +403,6 @@
         </div>
     </section>
 
-    <!-- Trust -->
     <section class="trust-section">
         <div class="section-header">
             <h2 class="section-title">Recognized Excellence</h2>
@@ -450,7 +427,6 @@
         </div>
     </section>
 
-    <!-- Phone -->
     <section class="coverage-section" id="phone">
         <div class="coverage-content">
             <h2>Fiber Phone Service</h2>
@@ -477,7 +453,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section">
         <h2>Ready for Better Internet?</h2>
         <p>100% fiber—doing things cable can't do.</p>
@@ -487,7 +462,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p class="disclaimer">** Offers subject to change; available to new residential customers only. May not be combined with other offers. Services are subject to all applicable terms and conditions located at www.metronet.com. In select markets, Metronet may offer asymmetrical speeds. Advertised speed based on wired connection and compatible equipment; see our Network Management and Broadband Internet Service Disclosures at www.metronet.com for more details. Services not available in all areas. Restrictions apply. Pricing for the 500/500 Mb, 1/1 Gb, and 2/2 Gb are current standard rates. Offer of free installation is based on a one-time $75 credit is valid through September 1, 2025 - October 30, 2025. An eero router is provided at no additional cost when purchasing Metronet internet speeds; and equipment must be returned at time of cancellation. Upon any service suspension or voluntary service downgrade, pricing will revert to Metronet's then-current standard rates. The advertised price does not include applicable taxes.</p>
@@ -547,34 +521,23 @@
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    console.log('Form submitted'); // Debug log
-                    
-                    // Check if plan is selected
                     var planSelected = form.querySelector('input[name="plan"]:checked');
                     if (!planSelected) {
                         alert('Please select a plan');
                         return;
                     }
                     
-                    // Get form data
                     var formData = new FormData(form);
-                    
-                    // Convert to URL-encoded format
                     var params = [];
                     for (var pair of formData.entries()) {
                         params.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
                     }
                     var urlEncoded = params.join('&');
                     
-                    console.log('Sending data:', urlEncoded); // Debug log
-                    
-                    // Submit to Google Sheets
                     fetch(form.action + '?' + urlEncoded, {
                         method: 'GET',
                         mode: 'no-cors'
                     }).then(function() {
-                        console.log('Success'); // Debug log
-                        // Show thank you message
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
                         if (formContent) formContent.style.display = 'none';
@@ -586,8 +549,6 @@
                             options.forEach(function(opt) { opt.classList.remove('selected'); });
                         }, 5000);
                     }).catch(function(error) {
-                        console.log('Error but showing thank you:', error); // Debug log
-                        // Even if there's an error, show thank you (data still submitted)
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
                         if (formContent) formContent.style.display = 'none';
