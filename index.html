@@ -442,14 +442,17 @@
         }
 
         .benefits {
-            max-width: 1400px;
-            margin: 100px auto;
-            padding: 0 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 100px 40px;
+            margin: 0;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 70px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-title {
@@ -471,6 +474,8 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .benefit-card {
@@ -631,10 +636,10 @@
         }
 
         .trust-section {
-            max-width: 1400px;
-            margin: 100px auto;
-            padding: 0 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 100px 40px;
             text-align: center;
+            margin: 0;
         }
 
         .awards-grid {
@@ -642,6 +647,9 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             margin-top: 60px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .award-card {
@@ -676,13 +684,12 @@
         }
 
         .cta-section {
-            max-width: 1400px;
-            margin: 100px auto 60px;
-            padding: 80px 40px;
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-            border-radius: 30px;
+            padding: 80px 40px;
             text-align: center;
             color: white;
+            margin: 0;
+            border-radius: 0;
         }
 
         .cta-section h2 {
@@ -817,12 +824,29 @@
                 grid-template-columns: 1fr;
             }
 
+            .phone-features {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-button span:first-child {
+                display: inline;
+            }
+
+            .nav-button {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
             .nav-links {
                 display: none;
             }
+        }
 
-            .phone-features {
-                grid-template-columns: 1fr;
+        @media (min-width: 1025px) {
+            .nav-links {
+                display: flex;
             }
         }
     </style>
