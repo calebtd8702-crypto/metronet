@@ -134,6 +134,32 @@
             overflow: hidden;
         }
 
+        .promo-banner {
+            background: linear-gradient(90deg, #00ff88 0%, #00e077 100%);
+            color: #1e1b4b;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.95;
+            }
+        }
+
+        .promo-banner span {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -988,6 +1014,11 @@
             </div>
         </div>
     </nav>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <span>🎉</span> LIMITED TIME OFFER: 30-Day Free Trial on All Plans! <span>🎉</span>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
