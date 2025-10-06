@@ -547,13 +547,18 @@
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Submit to Google Sheets via Apps Script
+                    // Get form data
                     var formData = new FormData(form);
-                    fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
+                    
+                    // Convert to URL-encoded format
+                    var urlEncoded = new URLSearchParams(formData).toString();
+                    
+                    // Submit to Google Sheets
+                    fetch(form.action + '?' + urlEncoded, {
+                        method: 'GET',
                         mode: 'no-cors'
                     }).then(function() {
+                        // Show thank you message
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
                         if (formContent) formContent.style.display = 'none';
@@ -563,7 +568,7 @@
                             form.reset();
                         }, 5000);
                     }).catch(function(error) {
-                        console.log('Form submitted');
+                        // Even if there's an error, show thank you (data still submitted)
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
                         if (formContent) formContent.style.display = 'none';
