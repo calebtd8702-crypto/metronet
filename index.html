@@ -129,7 +129,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
 
         .order-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .order-overlay.active { display: flex; }
-      .order-form-container { background: white; padding: 30px; border-radius: 16px; max-width: 420px; width: 100%; position: relative; margin: 20px auto; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .order-form-container { background: white; padding: 50px; border-radius: 16px; max-width: 800px; width: 100%; position: relative; margin: 20px auto; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
         .close-btn { position: absolute; top: 20px; right: 20px; background: #f3f4f6; border: none; font-size: 1.8rem; color: #4b5563; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 10; transition: all 0.3s ease; }
         .close-btn:hover { background: #e5e7eb; transform: rotate(90deg); }
         .order-form-container h2 { font-size: 2rem; color: #1e1b4b; margin-bottom: 12px; font-weight: 800; line-height: 1.2; }
@@ -201,7 +201,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
             .cta-section h2 { font-size: 2rem; }
             .cta-buttons { flex-direction: column; width: 100%; }
             .btn-secondary { width: 100%; }
-            .order-form-container { padding: 25px 20px; max-width: 95%; }
+            .order-form-container { padding: 30px 20px; }
             .plan-selection { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
         }
@@ -212,25 +212,84 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         <div class="order-form-container">
             <button class="close-btn" onclick="closeOrderForm()">×</button>
             <div id="orderFormContent">
-                <h2>Check Fiber Availability</h2>
-                <p class="subtitle">Enter your info to see if fiber is available in your area.</p>
+                <h2>Check If Fiber Is Available At Your Address</h2>
+                <p class="subtitle">See if Metronet fiber internet is expanding to your neighborhood. Enter your address below to check availability and lock in $70/month pricing.</p>
                 <form id="orderForm" action="https://script.google.com/macros/s/AKfycbzHZqEZALxILm6ish3P9eyhmChltah9FeBi58-jJf890gpIBaifs-dC12FVS4poj_h2/exec" method="POST">
-                    <div class="form-group">
-                        <label class="form-label">ZIP Code <span class="required">*</span></label>
-                        <input type="text" class="form-input" name="zip" required>
+                    <div class="form-section">
+                        <h3 class="form-section-title">Select Your Plan</h3>
+                        <div class="plan-selection">
+                            <label class="plan-option">
+                                <input type="radio" name="plan" value="500mb" required>
+                                <div class="plan-speed">500 Mb</div>
+                                <div class="plan-price">$60<span style="font-size: 1rem;">/mo</span></div>
+                                <div class="plan-description">Perfect for streaming</div>
+                            </label>
+                            <label class="plan-option most-popular-form">
+                                <input type="radio" name="plan" value="1gig" checked required>
+                                <div class="plan-speed">1 Gig</div>
+                                <div class="plan-price">$70<span style="font-size: 1rem;">/mo</span></div>
+                                <div class="plan-description">Ideal for families</div>
+                            </label>
+                            <label class="plan-option">
+                                <input type="radio" name="plan" value="2gig" required>
+                                <div class="plan-speed">2 Gig</div>
+                                <div class="plan-price">$80<span style="font-size: 1rem;">/mo</span></div>
+                                <div class="plan-description">Ultimate performance</div>
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Phone <span class="required">*</span></label>
-                        <input type="tel" class="form-input" name="phone" placeholder="555-555-5555" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email <span class="required">*</span></label>
-                        <input type="email" class="form-input" name="email" required>
+                    <div class="form-section">
+                        <h3 class="form-section-title">Your Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email <span class="required">*</span></label>
+                            <input type="email" class="form-input" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Street Address <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">City <span class="required">*</span></label>
+                                <input type="text" class="form-input" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">State <span class="required">*</span></label>
+                                <input type="text" class="form-input" name="state" value="IA" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ZIP Code <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="zip" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone <span class="required">*</span></label>
+                            <input type="tel" class="form-input" name="phone" placeholder="555-555-5555" required>
+                        </div>
                     </div>
                     <button type="submit" class="submit-btn">Check Availability</button>
-                    <p class="below-form-text">We'll contact you within 24 hours.</p>
+                    <p class="below-form-text">A Metronet specialist will confirm availability within 24 hours.</p>
                 </form>
             </div>
+            <div id="thankYouMessage" style="display: none;">
+                <div class="thank-you-message">
+                    <div class="checkmark">✓</div>
+                    <h2>Thank You!</h2>
+                    <p>We'll contact you within 24 hours to confirm availability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <nav class="nav">
         <div class="nav-content">
