@@ -127,40 +127,45 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         .footer-extra p { color: #94a3b8; margin-bottom: 15px; }
         .footer-extra strong { color: #94a3b8; }
 
-        .order-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.75); z-index: 200; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .order-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .order-overlay.active { display: flex; }
-        .order-form-container { background: white; padding: 50px; border-radius: 12px; max-width: 800px; width: 100%; position: relative; margin: 20px auto; max-height: 90vh; overflow-y: auto; }
-        .close-btn { position: absolute; top: 15px; right: 15px; background: #e2e8f0; border: none; font-size: 1.8rem; color: #1e1b4b; cursor: pointer; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 10; }
-        .close-btn:hover { background: #cbd5e0; transform: scale(1.1); }
-        .order-form-container h2 { font-size: 1.8rem; color: #1e1b4b; margin-bottom: 8px; font-weight: 800; }
-        .order-form-container .subtitle { color: #64748b; margin-bottom: 10px; font-size: 1rem; }
+        .order-form-container { background: white; padding: 50px; border-radius: 16px; max-width: 800px; width: 100%; position: relative; margin: 20px auto; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .close-btn { position: absolute; top: 20px; right: 20px; background: #f3f4f6; border: none; font-size: 1.8rem; color: #4b5563; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 10; transition: all 0.3s ease; }
+        .close-btn:hover { background: #e5e7eb; transform: rotate(90deg); }
+        .order-form-container h2 { font-size: 2rem; color: #1e1b4b; margin-bottom: 12px; font-weight: 800; line-height: 1.2; }
+        .order-form-container .subtitle { color: #64748b; margin-bottom: 15px; font-size: 1.05rem; line-height: 1.6; }
+        .order-form-container .below-form-text { text-align: center; color: #7b68ee; font-size: 0.95rem; margin-top: 15px; font-weight: 600; }
         .form-section { margin-bottom: 35px; }
         .form-section-title { font-size: 1.3rem; color: #1e1b4b; margin-bottom: 20px; font-weight: 700; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; }
         .plan-selection { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
         
-        .plan-option { border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px 15px; cursor: pointer; transition: all 0.3s ease; text-align: center; background: white; position: relative; }
-        .plan-option:hover { border-color: #1e1b4b; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(30, 27, 75, 0.15); }
-        .plan-option.selected { border-color: #00ff88; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; }
-        .plan-option.most-popular-form { border-color: #00ff88; border-width: 3px; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3); }
-        .plan-option.most-popular-form::before { content: 'MOST POPULAR'; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background: #00ff88; color: #1e1b4b; padding: 2px 8px; border-radius: 6px; font-size: 0.5rem; font-weight: 800; z-index: 5; }
+        .plan-option { border: 3px solid #e2e8f0; border-radius: 12px; padding: 20px 15px; cursor: pointer; transition: all 0.3s ease; text-align: center; background: white; position: relative; }
+        .plan-option:hover { border-color: #7b68ee; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(123, 104, 238, 0.2); }
+        .plan-option.selected { border-color: #00b140; background: linear-gradient(135deg, #00b140 0%, #008f33 100%); color: white; box-shadow: 0 8px 20px rgba(0, 177, 64, 0.3); }
+        .plan-option.most-popular-form { border-color: #00b140; border-width: 3px; }
+        .plan-option.most-popular-form::before { content: 'MOST POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #00b140; color: white; padding: 4px 12px; border-radius: 8px; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px; z-index: 5; box-shadow: 0 2px 8px rgba(0, 177, 64, 0.4); }
         
         .plan-option input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
-        .plan-option .plan-speed { font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
-        .plan-option.selected .plan-speed { color: #00ff88; }
-        .plan-option .plan-price { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
-        .plan-option .plan-description { font-size: 0.8rem; opacity: 0.8; }
+        .plan-option .plan-speed { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; color: #1e1b4b; }
+        .plan-option.selected .plan-speed { color: white; }
+        .plan-option .plan-price { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: #1e1b4b; }
+        .plan-option.selected .plan-price { color: white; }
+        .plan-option .plan-description { font-size: 0.85rem; opacity: 0.7; color: #64748b; }
+        .plan-option.selected .plan-description { opacity: 0.9; color: white; }
         .form-group { margin-bottom: 20px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .form-label { display: block; font-weight: 600; color: #2d3748; margin-bottom: 6px; font-size: 0.85rem; }
+        .form-label { display: block; font-weight: 600; color: #2d3748; margin-bottom: 6px; font-size: 0.9rem; }
         .required { color: #e53e3e; }
-        .form-input { width: 100%; padding: 10px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 0.95rem; background: white; transition: all 0.2s ease; }
-        .form-input:focus { outline: none; border-color: #1e1b4b; box-shadow: 0 0 0 3px rgba(30, 27, 75, 0.1); }
-        .submit-btn { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; border: none; padding: 14px 40px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 15px; }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30, 27, 75, 0.4); }
+        .form-input { width: 100%; padding: 12px 14px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; background: white; transition: all 0.2s ease; }
+        .form-input:focus { outline: none; border-color: #7b68ee; box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.1); }
+        .submit-btn { background: linear-gradient(135deg, #00b140 0%, #008f33 100%); color: white; border: none; padding: 16px 40px; border-radius: 10px; font-size: 1.05rem; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: 20px; transition: all 0.3s ease; letter-spacing: 0.5px; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 177, 64, 0.4); }
+        .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .thank-you-message { text-align: center; padding: 60px 40px; }
-        .thank-you-message h2 { font-size: 2.5rem; color: #00ff88; margin-bottom: 20px; }
-        .thank-you-message p { font-size: 1.3rem; color: #64748b; }
-        .checkmark { width: 80px; height: 80px; border-radius: 50%; background: #00ff88; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #1e1b4b; }
+        .thank-you-message h2 { font-size: 2.5rem; color: #00b140; margin-bottom: 20px; }
+        .thank-you-message p { font-size: 1.3rem; color: #64748b; line-height: 1.6; }
+        .checkmark { width: 80px; height: 80px; border-radius: 50%; background: #00b140; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; animation: checkmarkPop 0.5s ease; }
+        @keyframes checkmarkPop { 0% { transform: scale(0); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
         @media (max-width: 1024px) { .nav-links { display: none; } }
         @media (max-width: 768px) {
@@ -203,13 +208,12 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
     </style>
 </head>
 <body>
-    <div class="order-overlay" id="orderOverlay">
+<div class="order-overlay" id="orderOverlay">
         <div class="order-form-container">
             <button class="close-btn" onclick="closeOrderForm()">×</button>
             <div id="orderFormContent">
                 <h2>Check If Fiber Is Available At Your Address</h2>
                 <p class="subtitle">See if Iowa's fastest fiber internet is expanding to your neighborhood. Enter your address below to check availability and lock in $70/month pricing.</p>
-                <p class="subtitle" style="margin-top: -5px; font-size: 0.9rem; opacity: 0.8;">A Metronet specialist will confirm availability within 24 hours.</p>
                 <form id="orderForm" action="https://script.google.com/macros/s/AKfycbzHZqEZALxILm6ish3P9eyhmChltah9FeBi58-jJf890gpIBaifs-dC12FVS4poj_h2/exec" method="POST">
                     <div class="form-section">
                         <h3 class="form-section-title">Select Your Plan</h3>
@@ -221,7 +225,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                                 <div class="plan-description">Perfect for streaming</div>
                             </label>
                             <label class="plan-option most-popular-form">
-                                <input type="radio" name="plan" value="1gig" required>
+                                <input type="radio" name="plan" value="1gig" checked required>
                                 <div class="plan-speed">1 Gig</div>
                                 <div class="plan-price">$70<span style="font-size: 1rem;">/mo</span></div>
                                 <div class="plan-description">Ideal for families</div>
@@ -261,7 +265,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                             </div>
                             <div class="form-group">
                                 <label class="form-label">State <span class="required">*</span></label>
-                                <input type="text" class="form-input" name="state" placeholder="IA" required>
+                                <input type="text" class="form-input" name="state" value="IA" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -273,14 +277,15 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                             <input type="tel" class="form-input" name="phone" placeholder="555-555-5555" required>
                         </div>
                     </div>
-                    <button type="submit" class="submit-btn">Check Options</button>
+                    <button type="submit" class="submit-btn">Check Availability</button>
+                    <p class="below-form-text">A Metronet specialist will confirm availability within 24 hours.</p>
                 </form>
             </div>
             <div id="thankYouMessage" style="display: none;">
                 <div class="thank-you-message">
                     <div class="checkmark">✓</div>
                     <h2>Thank You!</h2>
-                    <p>A Metronet representative will be in touch soon!</p>
+                    <p>We'll contact you within 24 hours to confirm availability.</p>
                 </div>
             </div>
         </div>
@@ -491,7 +496,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         </div>
     </footer>
 
-    <script>
+<script>
         function showOrderForm() {
             var overlay = document.getElementById('orderOverlay');
             if (overlay) {
@@ -505,6 +510,12 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 if (form) form.reset();
                 var options = document.querySelectorAll('.plan-option');
                 options.forEach(function(opt) { opt.classList.remove('selected'); });
+                // Pre-select 1 Gig plan
+                var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
+                if (defaultPlan) {
+                    defaultPlan.checked = true;
+                    defaultPlan.closest('.plan-option').classList.add('selected');
+                }
             }
         }
 
@@ -517,6 +528,20 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Check for URL parameter to auto-open form
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('form') === 'open') {
+                showOrderForm();
+            }
+
+            // Add click handler for any buttons with class 'open-form-button'
+            var openButtons = document.querySelectorAll('.open-form-button');
+            openButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    showOrderForm();
+                });
+            });
+
             var overlay = document.getElementById('orderOverlay');
             if (overlay) {
                 overlay.addEventListener('click', function(e) {
@@ -545,7 +570,24 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                         return;
                     }
                     
+                    // Disable submit button to prevent double-clicks
+                    var submitBtn = form.querySelector('.submit-btn');
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Submitting...';
+                    }
+                    
                     var formData = new FormData(form);
+                    
+                    // Log form data to console
+                    console.log('Form submitted with data:');
+                    var dataObject = {};
+                    for (var pair of formData.entries()) {
+                        console.log(pair[0] + ': ' + pair[1]);
+                        dataObject[pair[0]] = pair[1];
+                    }
+                    console.log('Full data object:', dataObject);
+                    
                     var params = [];
                     for (var pair of formData.entries()) {
                         params.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
@@ -563,10 +605,21 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                         setTimeout(function() { 
                             closeOrderForm();
                             form.reset();
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Check Availability';
+                            }
                             var options = document.querySelectorAll('.plan-option');
                             options.forEach(function(opt) { opt.classList.remove('selected'); });
+                            // Re-select default plan
+                            var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
+                            if (defaultPlan) {
+                                defaultPlan.checked = true;
+                                defaultPlan.closest('.plan-option').classList.add('selected');
+                            }
                         }, 5000);
                     }).catch(function(error) {
+                        console.error('Form submission error:', error);
                         var formContent = document.getElementById('orderFormContent');
                         var thankYou = document.getElementById('thankYouMessage');
                         if (formContent) formContent.style.display = 'none';
@@ -574,8 +627,18 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                         setTimeout(function() { 
                             closeOrderForm();
                             form.reset();
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Check Availability';
+                            }
                             var options = document.querySelectorAll('.plan-option');
                             options.forEach(function(opt) { opt.classList.remove('selected'); });
+                            // Re-select default plan
+                            var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
+                            if (defaultPlan) {
+                                defaultPlan.checked = true;
+                                defaultPlan.closest('.plan-option').classList.add('selected');
+                            }
                         }, 5000);
                     });
                 });
