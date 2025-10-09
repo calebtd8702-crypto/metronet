@@ -243,7 +243,13 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                     </div>
                     <button type="submit" class="submit-btn">Check Availability</button>
                 </form>
+              <div id="thankYouMessage" style="display: none;">
+                <div class="thank-you-message">
+                    <div class="checkmark">✓</div>
+                    <h2>Thank You!</h2>
+                    <p>We'll contact you within 24 hours to confirm availability.</p>
                 </div>
+              </div>
             </div>
         </div>
     </div>
@@ -453,7 +459,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         </div>
     </footer>
 
-<script>
+       <script>
         function showOrderForm() {
             var overlay = document.getElementById('orderOverlay');
             if (overlay) {
@@ -465,14 +471,6 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 if (thankYou) thankYou.style.display = 'none';
                 var form = document.getElementById('orderForm');
                 if (form) form.reset();
-                var options = document.querySelectorAll('.plan-option');
-                options.forEach(function(opt) { opt.classList.remove('selected'); });
-                // Pre-select 1 Gig plan
-                var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
-                if (defaultPlan) {
-                    defaultPlan.checked = true;
-                    defaultPlan.closest('.plan-option').classList.add('selected');
-                }
             }
         }
 
@@ -491,30 +489,12 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 showOrderForm();
             }
 
-            // Add click handler for any buttons with class 'open-form-button'
-            var openButtons = document.querySelectorAll('.open-form-button');
-            openButtons.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    showOrderForm();
-                });
-            });
-
             var overlay = document.getElementById('orderOverlay');
             if (overlay) {
                 overlay.addEventListener('click', function(e) {
                     if (e.target === this) closeOrderForm();
                 });
             }
-
-            var planOptions = document.querySelectorAll('.plan-option');
-            planOptions.forEach(function(option) {
-                option.addEventListener('click', function() {
-                    planOptions.forEach(function(opt) { opt.classList.remove('selected'); });
-                    this.classList.add('selected');
-                    var radio = this.querySelector('input[type="radio"]');
-                    if (radio) radio.checked = true;
-                });
-            });
 
             var form = document.getElementById('orderForm');
             if (form) {
@@ -560,14 +540,8 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                                 submitBtn.disabled = false;
                                 submitBtn.textContent = 'Check Availability';
                             }
-                            var options = document.querySelectorAll('.plan-option');
-                            options.forEach(function(opt) { opt.classList.remove('selected'); });
-                            // Re-select default plan
-                            var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
-                            if (defaultPlan) {
-                                defaultPlan.checked = true;
-                                defaultPlan.closest('.plan-option').classList.add('selected');
-                            }
+                            if (formContent) formContent.style.display = 'block';
+                            if (thankYou) thankYou.style.display = 'none';
                         }, 5000);
                     }).catch(function(error) {
                         console.error('Form submission error:', error);
@@ -582,14 +556,8 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                                 submitBtn.disabled = false;
                                 submitBtn.textContent = 'Check Availability';
                             }
-                            var options = document.querySelectorAll('.plan-option');
-                            options.forEach(function(opt) { opt.classList.remove('selected'); });
-                            // Re-select default plan
-                            var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
-                            if (defaultPlan) {
-                                defaultPlan.checked = true;
-                                defaultPlan.closest('.plan-option').classList.add('selected');
-                            }
+                            if (formContent) formContent.style.display = 'block';
+                            if (thankYou) thankYou.style.display = 'none';
                         }, 5000);
                     });
                 });
