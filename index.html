@@ -212,11 +212,11 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         <div class="order-form-container">
             <button class="close-btn" onclick="closeOrderForm()">×</button>
             <div id="orderFormContent">
-                <h2>Check If Metronet Fiber Is Available At Your Address</h2>
-                <p class="subtitle">Enter your information below and if we're in your area, first month is on us!</p>
+                <h2>Check If Fiber Is Available At Your Address</h2>
+                <p class="subtitle">Enter your information below and we'll check availability in your area.</p>
                 <form id="orderForm" action="https://script.google.com/macros/s/AKfycbzHZqEZALxILm6ish3P9eyhmChltah9FeBi58-jJf890gpIBaifs-dC12FVS4poj_h2/exec" method="POST">
                     <div class="form-group">
-                        <label class="form-label">Name <span class="required">*</span></label>
+                        <label class="form-label">Full Name <span class="required">*</span></label>
                         <input type="text" class="form-input" name="fullName" required>
                     </div>
                     <div class="form-group">
@@ -234,7 +234,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label">State <span class="required">*</span></label>
-                            <input type="text" class="form-input" name="state" required>
+                            <input type="text" class="form-input" name="state" value="IA" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">ZIP Code <span class="required">*</span></label>
@@ -242,14 +242,12 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                         </div>
                     </div>
                     <button type="submit" class="submit-btn">Check Availability</button>
+                    <p class="below-form-text">A Metronet specialist will confirm availability within 24 hours.</p>
                 </form>
-              <div id="thankYouMessage" style="display: none;">
-                <div class="thank-you-message">
-                    <div class="checkmark">✓</div>
-                    <h2>Thank You!</h2>
-                    <p>We'll contact you within 24 hours to confirm availability.</p>
                 </div>
-              </div>
+            </div>
+        </div>
+    </div>
 
     <nav class="nav">
         <div class="nav-content">
@@ -456,7 +454,7 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
         </div>
     </footer>
 
-       <script>
+<script>
         function showOrderForm() {
             var overlay = document.getElementById('orderOverlay');
             if (overlay) {
@@ -468,6 +466,14 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 if (thankYou) thankYou.style.display = 'none';
                 var form = document.getElementById('orderForm');
                 if (form) form.reset();
+                var options = document.querySelectorAll('.plan-option');
+                options.forEach(function(opt) { opt.classList.remove('selected'); });
+                // Pre-select 1 Gig plan
+                var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
+                if (defaultPlan) {
+                    defaultPlan.checked = true;
+                    defaultPlan.closest('.plan-option').classList.add('selected');
+                }
             }
         }
 
@@ -486,6 +492,14 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 showOrderForm();
             }
 
+            // Add click handler for any buttons with class 'open-form-button'
+            var openButtons = document.querySelectorAll('.open-form-button');
+            openButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    showOrderForm();
+                });
+            });
+
             var overlay = document.getElementById('orderOverlay');
             if (overlay) {
                 overlay.addEventListener('click', function(e) {
@@ -493,15 +507,28 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 });
             }
 
+            var planOptions = document.querySelectorAll('.plan-option');
+            planOptions.forEach(function(option) {
+                option.addEventListener('click', function() {
+                    planOptions.forEach(function(opt) { opt.classList.remove('selected'); });
+                    this.classList.add('selected');
+                    var radio = this.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
+                });
+            });
+
             var form = document.getElementById('orderForm');
-            if (form) {
-           var form = document.getElementById('orderForm');
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    console.log('Form submission started');
+                    var planSelected = form.querySelector('input[name="plan"]:checked');
+                    if (!planSelected) {
+                        alert('Please select a plan');
+                        return;
+                    }
                     
+                    // Disable submit button to prevent double-clicks
                     var submitBtn = form.querySelector('.submit-btn');
                     if (submitBtn) {
                         submitBtn.disabled = true;
@@ -509,41 +536,72 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                     }
                     
                     var formData = new FormData(form);
+                    
+                    // Log form data to console
+                    console.log('Form submitted with data:');
+                    var dataObject = {};
+                    for (var pair of formData.entries()) {
+                        console.log(pair[0] + ': ' + pair[1]);
+                        dataObject[pair[0]] = pair[1];
+                    }
+                    console.log('Full data object:', dataObject);
+                    
                     var params = [];
                     for (var pair of formData.entries()) {
                         params.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
                     }
                     var urlEncoded = params.join('&');
                     
-                    // Show thank you message immediately
-                    var formContent = document.getElementById('orderFormContent');
-                    var thankYou = document.getElementById('thankYouMessage');
-                    
-                    console.log('Hiding form, showing thank you');
-                    
-                    if (formContent) formContent.style.display = 'none';
-                    if (thankYou) thankYou.style.display = 'block';
-                    
-                    // Submit in background
                     fetch(form.action + '?' + urlEncoded, {
                         method: 'GET',
                         mode: 'no-cors'
+                    }).then(function() {
+                        var formContent = document.getElementById('orderFormContent');
+                        var thankYou = document.getElementById('thankYouMessage');
+                        if (formContent) formContent.style.display = 'none';
+                        if (thankYou) thankYou.style.display = 'block';
+                        setTimeout(function() { 
+                            closeOrderForm();
+                            form.reset();
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Check Availability';
+                            }
+                            var options = document.querySelectorAll('.plan-option');
+                            options.forEach(function(opt) { opt.classList.remove('selected'); });
+                            // Re-select default plan
+                            var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
+                            if (defaultPlan) {
+                                defaultPlan.checked = true;
+                                defaultPlan.closest('.plan-option').classList.add('selected');
+                            }
+                        }, 5000);
                     }).catch(function(error) {
-                        console.error('Submission error:', error);
+                        console.error('Form submission error:', error);
+                        var formContent = document.getElementById('orderFormContent');
+                        var thankYou = document.getElementById('thankYouMessage');
+                        if (formContent) formContent.style.display = 'none';
+                        if (thankYou) thankYou.style.display = 'block';
+                        setTimeout(function() { 
+                            closeOrderForm();
+                            form.reset();
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Check Availability';
+                            }
+                            var options = document.querySelectorAll('.plan-option');
+                            options.forEach(function(opt) { opt.classList.remove('selected'); });
+                            // Re-select default plan
+                            var defaultPlan = form.querySelector('input[name="plan"][value="1gig"]');
+                            if (defaultPlan) {
+                                defaultPlan.checked = true;
+                                defaultPlan.closest('.plan-option').classList.add('selected');
+                            }
+                        }, 5000);
                     });
-                    
-                    // Close after 5 seconds
-                    setTimeout(function() {
-                        closeOrderForm();
-                        if (formContent) formContent.style.display = 'block';
-                        if (thankYou) thankYou.style.display = 'none';
-                        form.reset();
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.textContent = 'Check Availability';
-                        }
-                    }, 5000);
                 });
+            }
+        });
     </script>
 </body>
 </html>
