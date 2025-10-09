@@ -521,12 +521,6 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    var planSelected = form.querySelector('input[name="plan"]:checked');
-                    if (!planSelected) {
-                        alert('Please select a plan');
-                        return;
-                    }
-                    
                     // Disable submit button to prevent double-clicks
                     var submitBtn = form.querySelector('.submit-btn');
                     if (submitBtn) {
