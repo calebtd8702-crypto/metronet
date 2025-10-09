@@ -492,7 +492,10 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                     if (e.target === this) closeOrderForm();
                 });
             }
-               var form = document.getElementById('orderForm');
+
+            var form = document.getElementById('orderForm');
+            if (form) {
+           var form = document.getElementById('orderForm');
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -541,8 +544,6 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                         }
                     }, 5000);
                 });
-            }
-        });
     </script>
 </body>
 </html>
