@@ -495,10 +495,13 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
 
             var form = document.getElementById('orderForm');
             if (form) {
+           var form = document.getElementById('orderForm');
+            if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Disable submit button to prevent double-clicks
+                    console.log('Form submission started');
+                    
                     var submitBtn = form.querySelector('.submit-btn');
                     if (submitBtn) {
                         submitBtn.disabled = true;
@@ -506,60 +509,41 @@ src="https://www.facebook.com/tr?id=1925224911677372&ev=PageView&noscript=1"
                     }
                     
                     var formData = new FormData(form);
-                    
-                    // Log form data to console
-                    console.log('Form submitted with data:');
-                    var dataObject = {};
-                    for (var pair of formData.entries()) {
-                        console.log(pair[0] + ': ' + pair[1]);
-                        dataObject[pair[0]] = pair[1];
-                    }
-                    console.log('Full data object:', dataObject);
-                    
                     var params = [];
                     for (var pair of formData.entries()) {
                         params.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
                     }
                     var urlEncoded = params.join('&');
                     
+                    // Show thank you message immediately
+                    var formContent = document.getElementById('orderFormContent');
+                    var thankYou = document.getElementById('thankYouMessage');
+                    
+                    console.log('Hiding form, showing thank you');
+                    
+                    if (formContent) formContent.style.display = 'none';
+                    if (thankYou) thankYou.style.display = 'block';
+                    
+                    // Submit in background
                     fetch(form.action + '?' + urlEncoded, {
                         method: 'GET',
                         mode: 'no-cors'
-                    }).then(function() {
-                        var formContent = document.getElementById('orderFormContent');
-                        var thankYou = document.getElementById('thankYouMessage');
-                        if (formContent) formContent.style.display = 'none';
-                        if (thankYou) thankYou.style.display = 'block';
-                        setTimeout(function() { 
-                            closeOrderForm();
-                            form.reset();
-                            if (submitBtn) {
-                                submitBtn.disabled = false;
-                                submitBtn.textContent = 'Check Availability';
-                            }
-                            if (formContent) formContent.style.display = 'block';
-                            if (thankYou) thankYou.style.display = 'none';
-                        }, 5000);
                     }).catch(function(error) {
-                        console.error('Form submission error:', error);
-                        var formContent = document.getElementById('orderFormContent');
-                        var thankYou = document.getElementById('thankYouMessage');
-                        if (formContent) formContent.style.display = 'none';
-                        if (thankYou) thankYou.style.display = 'block';
-                        setTimeout(function() { 
-                            closeOrderForm();
-                            form.reset();
-                            if (submitBtn) {
-                                submitBtn.disabled = false;
-                                submitBtn.textContent = 'Check Availability';
-                            }
-                            if (formContent) formContent.style.display = 'block';
-                            if (thankYou) thankYou.style.display = 'none';
-                        }, 5000);
+                        console.error('Submission error:', error);
                     });
+                    
+                    // Close after 5 seconds
+                    setTimeout(function() {
+                        closeOrderForm();
+                        if (formContent) formContent.style.display = 'block';
+                        if (thankYou) thankYou.style.display = 'none';
+                        form.reset();
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Check Availability';
+                        }
+                    }, 5000);
                 });
-            }
-        });
     </script>
 </body>
 </html>
